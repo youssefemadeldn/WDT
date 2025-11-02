@@ -1,0 +1,42 @@
+graph TD
+    subgraph "Admin: Product Category Management"
+        A[Start: Admin goes to 'Categories'] --> B[View Category List];
+        B --> C{Choose Action};
+        C -- Add Category --> D[Enter Category Name];
+        D --> E{Save?};
+        E -- Yes --> F[Add to DB];
+        F --> B;
+        E -- No --> B;
+        C -- Edit Category --> G[Select Category];
+        G --> H[Edit Name];
+        H --> I{Update?};
+        I -- Yes --> J[Update in DB];
+        J --> B;
+        I -- No --> B;
+        C -- Delete Category --> K[Select Category];
+        K --> L{Confirm Delete?};
+        L -- Yes --> M[Delete from DB];
+        M --> B;
+        L -- No --> B;
+    end
+
+    subgraph "Admin: Product Monitoring"
+        N[Start: Admin goes to 'All Products'] --> O[View Product List];
+        O --> P{Filter/Search Products};
+        P --> O;
+        O --> Q{Select a Product};
+        Q --> R[View Product Details];
+        R --> S{Action?};
+        S -- Hide Product --> T[Set Product as Inactive];
+        T --> O;
+        S -- Back --> O;
+    end
+
+    subgraph "Admin: Order Monitoring"
+        U[Start: Admin goes to 'All Orders'] --> V[View Order List];
+        V --> W{Filter/Search Orders};
+        W --> V;
+        V --> X{Select an Order};
+        X --> Y[View Order Details];
+        Y --> V;
+    end

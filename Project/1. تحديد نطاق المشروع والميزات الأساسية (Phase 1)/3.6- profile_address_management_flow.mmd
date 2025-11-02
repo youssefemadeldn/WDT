@@ -1,0 +1,34 @@
+graph TD
+    subgraph "Profile Management"
+        A[Start: User goes to Profile Page] --> B[View Current Profile Info];
+        B --> C[Click 'Edit Profile'];
+        C --> D[Modify Profile Fields];
+        D --> E{Save Changes?};
+        E -- Yes --> F[Update Profile in DB];
+        F --> G[Show Success Message];
+        G --> A;
+        E -- No --> A;
+    end
+
+    subgraph "Address Management"
+        H[Start: User goes to 'My Addresses'] --> I[View List of Addresses];
+        I --> J{Choose Action};
+        J -- Add New Address --> K[Open 'Add Address' Form];
+        K --> L[Fill Address Details];
+        L --> M{Save Address?};
+        M -- Yes --> N[Save Address to DB];
+        N --> H;
+        M -- No --> H;
+        J -- Edit Address --> O[Select Address to Edit];
+        O --> P[Open 'Edit Address' Form with existing data];
+        P --> Q[Modify Address Fields];
+        Q --> R{Update Address?};
+        R -- Yes --> S[Update Address in DB];
+        S --> H;
+        R -- No --> H;
+        J -- Delete Address --> T[Select Address to Delete];
+        T --> U{Confirm Deletion?};
+        U -- Yes --> V[Delete Address from DB];
+        V --> H;
+        U -- No --> H;
+    end

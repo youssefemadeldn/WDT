@@ -1,0 +1,13 @@
+graph TD
+    A[Start: User has items in cart] --> B[Go to Cart Page];
+    B --> C{Choose Action};
+    C -- Update Quantity --> D[Change item quantity];
+    D --> E{Recalculate Total};
+    E --> B;
+    C -- Remove Item --> F[Select item to remove];
+    F --> G{Confirm Removal};
+    G -- Yes --> H[Remove item from cart];
+    H --> E;
+    G -- No --> B;
+    C -- Proceed to Checkout --> I[Go to Checkout Page];
+    I --> J[End];

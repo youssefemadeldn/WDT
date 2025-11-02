@@ -1,0 +1,15 @@
+graph TD
+    A[Start: Seller receives new order notification] --> B[Go to 'My Orders'];
+    B --> C[View List of Orders];
+    C --> D{Select an Order to View Details};
+    D --> E[View Order Details];
+    E --> F{Update Order Status};
+    F -- 'Confirm Order' --> G[Status: Confirmed];
+    G --> H[Notify Buyer];
+    H --> B;
+    F -- 'Ship Order' --> I[Status: Shipped];
+    I --> J[Notify Buyer];
+    J --> B;
+    F -- 'Complete Order' --> K[Status: Completed];
+    K --> L[Notify Buyer];
+    L --> B;

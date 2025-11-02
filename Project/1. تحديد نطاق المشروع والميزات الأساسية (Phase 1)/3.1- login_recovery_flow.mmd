@@ -1,0 +1,20 @@
+graph TD
+    subgraph "Login Flow"
+        A[Start: User visits login page] --> B[Enter Email and Password];
+        B --> C{Credentials Correct?};
+        C -- Yes --> D[Login Successful];
+        D --> E[Redirect to Dashboard];
+        E --> F[End];
+        C -- No --> G[Show Error Message];
+        G --> B;
+    end
+
+    subgraph "Password Recovery Flow"
+        H[Start: User clicks 'Forgot Password'] --> I[Enter Registered Email];
+        I --> J{Email Exists in DB?};
+        J -- Yes --> K[Send Password Reset Link];
+        K --> L[Show Confirmation Message];
+        L --> M[End];
+        J -- No --> N[Show Error Message];
+        N --> I;
+    end

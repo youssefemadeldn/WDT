@@ -1,0 +1,10 @@
+graph TD
+    A[Start: User is on a product listing page] --> B{Choose Action};
+    B -- Search --> C[Enter keyword in search bar];
+    C --> D{Perform Search};
+    D --> E[Display Search Results];
+    E --> F[End];
+    B -- Filter --> G[Select filter criteria (e.g., category)];
+    G --> H{Apply Filter};
+    H --> I[Display Filtered Results];
+    I --> F;
