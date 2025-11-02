@@ -1,0 +1,12 @@
+graph TD
+    A[Start: New user registers] --> B[Account created with 'Pending Approval' status];
+    B --> C[Admin is notified];
+    C --> D[Admin logs in and goes to 'User Management'];
+    D --> E[Select user from 'Pending' list];
+    E --> F{Review User Details};
+    F -- Approve --> G[Change status to 'Active'];
+    G --> H[Notify user of approval];
+    H --> I[End: User can log in];
+    F -- Reject --> J[Change status to 'Rejected'];
+    J --> K[Notify user of rejection];
+    K --> L[End];

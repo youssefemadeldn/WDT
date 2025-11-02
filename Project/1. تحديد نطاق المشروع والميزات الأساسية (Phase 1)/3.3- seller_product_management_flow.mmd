@@ -1,0 +1,26 @@
+graph TD
+    A[Start: Seller logs in] --> B[Go to 'My Products'];
+    B --> C{Choose Action};
+    C -- Add New Product --> D[Open 'Add Product' Form];
+    D --> E[Fill Product Details];
+    E --> F{Validate Data};
+    F -- Valid --> G[Save Product to Database];
+    G --> H[Product is now live];
+    H --> I[End];
+    F -- Invalid --> J[Show Error Messages];
+    J --> E;
+    C -- Edit Existing Product --> K[Select Product from List];
+    K --> L[Open 'Edit Product' Form with existing data];
+    L --> M[Modify Product Details];
+    M --> N{Validate Data};
+    N -- Valid --> O[Update Product in Database];
+    O --> P[Changes are live];
+    P --> I;
+    N -- Invalid --> Q[Show Error Messages];
+    Q --> M;
+    C -- Delete Product --> R[Select Product from List];
+    R --> S{Confirm Deletion};
+    S -- Yes --> T[Remove Product from Database];
+    T --> U[Product is deleted];
+    U --> I;
+    S -- No --> B;

@@ -1,0 +1,21 @@
+graph TD
+    A[Start: Buyer is logged in] --> B[Search for a product];
+    B --> C[View Product Details];
+    C --> D[Add to Cart];
+    D --> E{Continue Shopping or Checkout};
+    E -- Continue Shopping --> B;
+    E -- Checkout --> F[View Cart];
+    F --> G[Proceed to Checkout];
+    G --> H[Select/Confirm Shipping Address];
+    H --> I[Select Payment Method];
+    I --> J[Review Order Summary];
+    J --> K[Confirm Order];
+    K --> L{Process Payment};
+    L -- Online Payment --> M[Redirect to Payment Gateway];
+    M --> N{Payment Successful?};
+    N -- Yes --> O[Create Order in System];
+    N -- No --> P[Show Payment Error];
+    P --> J;
+    L -- Cash on Delivery --> O;
+    O --> Q[Notify Seller and Buyer];
+    Q --> R[End: Order is placed];
