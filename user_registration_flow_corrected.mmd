@@ -1,0 +1,25 @@
+graph TD
+    A[Start: User visits the website] --> B{Choose Account Type};
+    B --> C[Buyer Registration];
+    B --> D[Seller Registration];
+
+    C --> E[Fill Buyer Information];
+    E --> F[Submit Registration];
+    F --> G{System Validation};
+    G --> H[Create Inactive Buyer Account];
+    H --> I[Send Verification Email];
+    I --> J{User Clicks Verification Link};
+    J --> K[Activate Buyer Account];
+    K --> L[End: Buyer can log in];
+
+    D --> M[Fill Seller Information];
+    M --> N[Submit Registration];
+    N --> O{System Validation};
+    O --> P[Create 'Pending Review' Seller Account];
+    P --> Q[Notify Admin];
+    Q --> R{Admin Reviews Seller};
+    R -- Approve --> S[Activate Seller Account];
+    R -- Reject --> T[Notify Seller of Rejection];
+    S --> U[Notify Seller of Approval];
+    U --> V[End: Seller can log in];
+    T --> W[End];
